@@ -4,6 +4,16 @@
 
 <mapper namespace="sia.tacocloud.domain.member.repository.MemberDao">
     <select id="selectList" resultType="sia.tacocloud.domain.member.entity.Member">
-        select email, name, age from member
+        select * from member
+    </select>
+    <insert id="saveMember" parameterType="java.util.HashMap">
+        insert into member (email, name, age) values (#{email}, #{name}, #{age})
+    </insert>
+    <delete id="deleteMember">
+        delete from member where email = #{email}
+    </delete>
+
+    <select id="findByEmail" resultType="sia.tacocloud.domain.member.entity.Member">
+        select * from member where email = #{email}
     </select>
 </mapper>
