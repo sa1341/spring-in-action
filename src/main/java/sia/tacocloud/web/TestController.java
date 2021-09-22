@@ -55,7 +55,7 @@ public class TestController {
         AddressBook inputAddressBook = AddressBook.parseFrom(fis);
         long end = System.nanoTime();
 
-        System.err.println("proto = " + (end-start));
+        System.err.println("proto elapsedTime = " + (end-start));
 
         return inputAddressBook.toString();
     }
