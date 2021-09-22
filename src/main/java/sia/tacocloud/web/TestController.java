@@ -55,7 +55,7 @@ public class TestController {
         AddressBook inputAddressBook = AddressBook.parseFrom(fis);
         long end = System.nanoTime();
 
-        System.err.println("proto = " + (end-start));
+        System.err.println("elapsedTime proto = " + (end-start));
 
         return inputAddressBook.toString();
     }
@@ -86,7 +86,7 @@ public class TestController {
         sia.tacocloud.domain.AddressBook inputAddressBook = objectMapper.readValue(new File(PROJ_DIR + File.separator + "test2.txt"), sia.tacocloud.domain.AddressBook.class);
 
         long end = System.nanoTime();
-        System.err.println("json = " + (end-start));
+        System.err.println("elapsedTime json = " + (end-start));
         return inputAddressBook;
     }
 }
