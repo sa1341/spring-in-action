@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTO Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sia.tacocloud.domain.fund.repository.FundDao">
+    <insert id="saveFund" parameterType="java.util.HashMap">
+        insert into fund (id, code, name, email, createat)
+        values (#{id}, #{code}, #{name}, #{email}, #{createdat})
+    </insert>
+    <delete id="deleteFund">
+        delete from fund where email = #{email}
+    </delete>
+    <select id="selectList" resultType="sia.tacocloud.domain.fund.model.FundBuyingResponse">
+        select m.email, m.name, m.age, f.code as fundCode, f.name as fundName, f.createdAt from fund f join member m on f.email = m.email where m.email = #{email}
+    </select>
+</mapper>
